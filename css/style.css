@@ -56,11 +56,13 @@ body input:autofill, body input:-webkit-autofill:hover, body input:-webkit-autof
 	padding: 60px;
 }
 .wrapper {
+	position: relative;
 	width: 100%;
 	max-width: 666px;
 	display: flex;
 	margin: auto;
-	/* filter: drop-shadow(0px 12px 82px rgba(0, 0, 0, 0.2)); */
+	background: #ffffff;
+	overflow: hidden;
 }
 .sidebar {
 	background: #5A61ED;
@@ -68,6 +70,7 @@ body input:autofill, body input:-webkit-autofill:hover, body input:-webkit-autof
 	width: 100%;
 	height: inherit;
 	position: relative;
+	z-index: 3;
 }
 .sidebar h1 {
 	font-family: 'PT Sans';
@@ -85,12 +88,13 @@ body input:autofill, body input:-webkit-autofill:hover, body input:-webkit-autof
 .form {
 	width: calc(100% - 138px);
 	color: #111111;
-	background: #FFFFFF;
+	background: transparent;
 	position: relative;
 }
 #form {
-	padding: 39px 22px 33px 21px;
-	background: url("../img/noun.svg") 100% 100% no-repeat;
+	padding: 39px 22px 31px 21px;
+	z-index: 2;
+	/* background: url("../img/noun.svg") 100% 100% no-repeat; */
 }
 .form h2, .form-thankyou h2 {
 	font-size: 22px;
@@ -319,6 +323,7 @@ body input:autofill, body input:-webkit-autofill:hover, body input:-webkit-autof
 	right: 0;
 	bottom: 0;
 	background:#ffffff;
+	z-index: 4;
 }
 .form-thankyou__text {
 	display: flex;
@@ -378,3 +383,66 @@ body input:autofill, body input:-webkit-autofill:hover, body input:-webkit-autof
 		row-gap: 15px;
 	}
 }
+
+/* анимация изображения */
+
+.logo-user {
+	position: absolute;
+	margin: auto;
+	right: -15.6%;
+	bottom: -11.3%;
+	z-index: 1;
+ }
+ .logo-user svg {
+	display: block;
+	width: 411px;
+	height: 411px;
+	stroke-width: 1;
+	stroke: #F9FAFF;
+ }
+ @media (max-width: 768px) {
+	.logo-user {
+		bottom: -8.3%;
+	}
+	.logo-user svg {
+	  width: 350px;
+	  height: 350px;
+	}
+ }
+ 
+ 
+ #left-to-right {
+	animation-duration: 0.35s;
+	animation-iteration-count: 1;
+	animation: fill-svg 0.45s linear;
+ }
+ @keyframes animation {
+	from {
+	  top: 0;
+	  left: 0;
+	  transform: rotate(47deg) scale(1.27);
+	  fill: transparent;
+	}
+	to {
+	  bottom: 0;
+	  right: 0;
+	  transform: rotate(47deg) scale(1.27);
+	  fill: #ffffff;
+	}
+ }
+
+ 
+ 
+ #rect {
+	animation: slideOver 5s linear infinite;
+ }
+ 
+ @keyframes slideOver {
+	0% {
+	  transform: translate(-50%, -330%) scale(1.3) rotate(45deg);
+	}
+	100% {
+	  transform: translate(100%, 0%) scale(1.3) rotate(45deg);
+	}
+ }
+ 

@@ -43,9 +43,6 @@ if (trim(!empty($_POST['age']))) {
 	$body .= '<p><strong>Возраст:</strong> ' . $_POST['age'] . '</p>';
 }
 
-if (trim(!empty($_POST['message']))) {
-	$body .= '<p><strong>Сообщение:</strong> ' . $_POST['message'] . '</p>';
-}
 
 $mail->Body = $body;
 

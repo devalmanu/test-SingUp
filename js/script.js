@@ -30,7 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				alert("Ошибка");
 				form.classList.remove('_sending');
 			}
+			alert('Регистрация прошла успешно');
+			form.reset();
 		} else {
+			button.classList.add('button__error');
 			alert('Заполните обязательные поля');
 		}
 
@@ -50,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
 					formAddError(input);
 					error++;
 				}
-			} else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-				formAddError(input);
-				error++;
+				// } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+				// 	formAddError(input);
+				// 	error++;
 			} else {
 				if (input.value === '') {
 					formAddError(input);
